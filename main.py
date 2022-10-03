@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome import service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 import time
 import os
 
@@ -32,10 +33,9 @@ password.send_keys(PASSWORD)
 login_button = driver.find_element(By.XPATH, '//*[@id="organic-div"]/form/div[3]/button')
 login_button.click()
 
-easy_application = driver.find_element(By.CSS_SELECTOR, "div.jobs-apply-button--top-card button")
-easy_application.click()
-phone_number = driver.find_element(By.CSS_SELECTOR,  "div.fb-single-line-text input")
-phone_number.send_keys("09029273594")
-phone_number.send_keys(Keys.TAB)
-next_button = driver.find_element(By.CSS_SELECTOR, 'footer button')
-next_button.click()
+# Keep and Follow
+keep_button = driver.find_element(By.CSS_SELECTOR, "button.jobs-save-button")
+keep_button.click()
+time.sleep(5)
+follow_button = driver.find_element(By.CSS_SELECTOR, "div.jobs-company__box button")
+follow_button.click()
